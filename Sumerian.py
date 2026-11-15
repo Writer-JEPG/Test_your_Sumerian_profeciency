@@ -1,9 +1,7 @@
 
 import streamlit as st
 
-# ==================================================
 # 1. PAGE CONFIGURATION
-# ==================================================
 
 st.set_page_config(
     page_title="Sumerian Language Quiz",
@@ -11,9 +9,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# ==================================================
 # 2. TRANSLATIONS
-# ==================================================
 
 translations = {
     "English": {
@@ -115,9 +111,7 @@ There are **15 questions**. Each correct answer earns one point.
     }
 }
 
-# ==================================================
 # 3. SIDEBAR LANGUAGE SELECTOR
-# ==================================================
 
 st.sidebar.title("🌐 Language / اللغة")
 
@@ -132,9 +126,9 @@ t = translations[language]
 st.sidebar.markdown("---")
 st.sidebar.info(t["info"])
 
-# ==================================================
+
 # 4. QUIZ QUESTIONS
-# ==================================================
+
 
 questions = [
     {
@@ -294,9 +288,7 @@ questions = [
     }
 ]
 
-# ==================================================
 # 5. APPLICATION HEADER
-# ==================================================
 
 st.title(t["title"])
 st.subheader(t["subtitle"])
@@ -307,9 +299,7 @@ st.info(t["instructions"])
 
 st.markdown("---")
 
-# ==================================================
 # 6. PARTICIPANT INFORMATION
-# ==================================================
 
 st.markdown(f"### {t['participant']}")
 
@@ -323,9 +313,7 @@ level_index = st.selectbox(
 
 st.markdown("---")
 
-# ==================================================
 # 7. DISPLAY THE 15 QUESTIONS
-# ==================================================
 
 st.markdown(f"### {t['questions']}")
 
@@ -349,9 +337,7 @@ for i, q in enumerate(questions):
 
     st.markdown("---")
 
-# ==================================================
 # 8. ADDITIONAL WIDGETS
-# ==================================================
 
 confidence = st.slider(
     t["confidence"],
@@ -363,9 +349,7 @@ confidence = st.slider(
 
 feedback = st.text_area(t["feedback"])
 
-# ==================================================
 # 9. SUBMIT BUTTON AND SCORE CALCULATION
-# ==================================================
 
 if st.button(t["submit"], type="primary"):
 
@@ -393,9 +377,7 @@ if st.button(t["submit"], type="primary"):
 
         percentage = (score / 15) * 100
 
-        # ------------------------------------------
         # DISPLAY RESULTS
-        # ------------------------------------------
 
         st.markdown("---")
         st.header(t["results"])
@@ -410,9 +392,7 @@ if st.button(t["submit"], type="primary"):
             delta=f"{percentage:.1f}%"
         )
 
-        # ------------------------------------------
         # RESULT MESSAGE
-        # ------------------------------------------
 
         if score >= 13:
             st.success(t["excellent"])
@@ -426,9 +406,7 @@ if st.button(t["submit"], type="primary"):
         else:
             st.error(t["poor"])
 
-        # ------------------------------------------
         # ANSWER REVIEW
-        # ------------------------------------------
 
         st.markdown("---")
         st.subheader(t["review"])
@@ -459,9 +437,7 @@ if st.button(t["submit"], type="primary"):
 
             st.caption(explanation)
 
-        # ------------------------------------------
         # FEEDBACK
-        # ------------------------------------------
 
         if feedback.strip():
             st.info(f"{t['feedback_received']}: {feedback}")
