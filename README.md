@@ -1,2 +1,2 @@
-# Test_your_Sumerian_profeciency
-This test is designed to examine your Sumerian profeciency.
+# Test_your_Sumerian_proficiency
+This quiz is designed to test your Sumerian proficiency.
